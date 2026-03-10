@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Blog - Análisis Semántico</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <nav>
-    <a href="#unidad1">Unidad I</a>
-    <a href="#">Unidad II</a>
-    <a href="#">Unidad III</a>
-    <a href="#">Unidad IV</a>
-    <a href="#">Unidad V</a>
-    <a href="#">Unidad VI</a>
+        <a href="#unidad1">Unidad I</a>
+        <a href="#">Unidad II</a>
+        <a href="#">Unidad III</a>
+        <a href="#">Unidad IV</a>
+        <a href="#">Unidad V</a>
+        <a href="#">Unidad VI</a>
     </nav>
 
     <header class="hero">
@@ -39,8 +41,10 @@
                     de una operación matemática o lógica. En esta estructura, los operandos siempre
                     son las hojas y los operadores son los nodos internos.
                 </p>
-                <p><strong>Importancia:</strong> Permite al compilador evaluar operaciones respetando la jerarquía y es la base para generar el código de máquina final.</p>
-                <p><strong>Detalle técnico:</strong> Generalmente se recorre en postorden (Izquierda, Derecha, Raíz) para realizar cálculos.</p>
+                <p><strong>Importancia:</strong> Permite al compilador evaluar operaciones respetando la jerarquía y es
+                    la base para generar el código de máquina final.</p>
+                <p><strong>Detalle técnico:</strong> Generalmente se recorre en postorden (Izquierda, Derecha, Raíz)
+                    para realizar cálculos.</p>
                 <p><strong>Ejemplo:</strong> Para <code>x = (a + b) * (c - 5)</code>:</p>
                 <ul>
                     <li>Se crea un nodo <code>+</code> con hijos <code>a</code> y <code>b</code>.</li>
@@ -49,7 +53,9 @@
                     <li>La raíz es <code>=</code> que asigna el resultado a <code>x</code>.</li>
                 </ul>
             </div>
-            <div class="img-placeholder">Espacio para imagen</div>
+            <div class="img-placeholder">
+                <img src="img/image1.png" class="tema-img" alt="Árbol de expresiones">
+            </div>
         </section>
 
         <section class="tema">
@@ -59,12 +65,15 @@
                     Son pequeñas rutinas o funciones que se insertan directamente en las reglas de la gramática.
                     Cuando el analizador sintáctico reconoce una estructura legal, dispara esta acción.
                 </p>
-                <p><strong>Importancia:</strong> Es el puente entre el reconocimiento del texto y la ejecución de lógica.</p>
-                <p><strong>Funciones comunes:</strong> Insertar datos en la tabla de símbolos, verificar tipos o generar código intermedio.</p>
+                <p><strong>Importancia:</strong> Es el puente entre el reconocimiento del texto y la ejecución de
+                    lógica.</p>
+                <p><strong>Funciones comunes:</strong> Insertar datos en la tabla de símbolos, verificar tipos o generar
+                    código intermedio.</p>
                 <pre><code>DECLARACION -> TIPO ID ;
 { TablaSimbolos.insertar(ID.nombre, TIPO.tipo); }</code></pre>
             </div>
-            <div class="img-placeholder">Espacio para imagen</div>
+            <img src="img/image2.png" class="tema-img" alt="Árbol de expresiones">
+            </div>
         </section>
 
         <section class="tema">
@@ -74,11 +83,18 @@
                     Es el conjunto de reglas que asegura que los operadores se usen con los datos correctos.
                     El sistema de tipos puede ser estático o dinámico.
                 </p>
-                <p><strong>Importancia:</strong> Evita errores graves, como intentar multiplicar un número por una cadena.</p>
-                <p><strong>Coerción:</strong> A veces se permite mezclar tipos si puede hacerse una conversión automática.</p>
-                <p><strong>Ejemplo:</strong> Si declaras <code>int a = 10;</code> y luego intentas hacer <code>a = "Hola";</code>, se marcará un error semántico.</p>
+                <p><strong>Importancia:</strong> Evita errores graves, como intentar multiplicar un número por una
+                    cadena.</p>
+                <p><strong>Coerción:</strong> A veces se permite mezclar tipos si puede hacerse una conversión
+                    automática.</p>
+                <p><strong>Ejemplo:</strong> Si declaras <code>int a = 10;</code> y luego intentas hacer
+                    <code>a = "Hola";</code>, se marcará un error semántico.</p>
             </div>
-            <div class="img-placeholder">Espacio para imagen</div>
+            </div>
+            <img src="img/image3.png" class="tema-img" alt="Árbol de expresiones">
+            </div>
+
+
         </section>
 
         <section class="tema">
@@ -88,11 +104,16 @@
                     Es una estructura auxiliar tipo LIFO que guarda temporalmente la información
                     de los nodos procesados, especialmente en analizadores ascendentes.
                 </p>
-                <p><strong>Importancia:</strong> Permite mantener el rastro de valores y tipos de las subexpresiones.</p>
-                <p><strong>Funcionamiento:</strong> En un shift se mete información a la pila; en un reduce se sacan los datos para aplicar la regla.</p>
-                <p><strong>Ejemplo:</strong> Al procesar <code>2 + 3</code>, la pila recibe 2, luego 3, y después devuelve 5.</p>
+                <p><strong>Importancia:</strong> Permite mantener el rastro de valores y tipos de las subexpresiones.
+                </p>
+                <p><strong>Funcionamiento:</strong> En un shift se mete información a la pila; en un reduce se sacan los
+                    datos para aplicar la regla.</p>
+                <p><strong>Ejemplo:</strong> Al procesar <code>2 + 3</code>, la pila recibe 2, luego 3, y después
+                    devuelve 5.</p>
             </div>
-            <div class="img-placeholder">Espacio para imagen</div>
+            </div>
+            <img src="img/image4.png" class="tema-img" alt="Árbol de expresiones">
+            </div>
         </section>
 
         <section class="tema">
@@ -104,9 +125,12 @@
                 </p>
                 <p><strong>Atributos sintetizados:</strong> El valor del padre se calcula a partir de los hijos.</p>
                 <p><strong>Atributos heredados:</strong> El valor depende del padre o de los hermanos.</p>
-                <p><strong>Ejemplo:</strong> En <code>LISTA_VARS -> ID , LISTA_VARS</code>, el tipo de dato se hereda hacia los identificadores de la lista.</p>
+                <p><strong>Ejemplo:</strong> En <code>LISTA_VARS -> ID , LISTA_VARS</code>, el tipo de dato se hereda
+                    hacia los identificadores de la lista.</p>
             </div>
-            <div class="img-placeholder">Espacio para imagen</div>
+            </div>
+            <img src="img/image5.png" class="tema-img" alt="Árbol de expresiones">
+            </div>
         </section>
 
         <section class="tema">
@@ -115,9 +139,11 @@
                 <p>Estas tablas son el diccionario del programa durante la compilación.</p>
                 <p><strong>Tabla de símbolos:</strong> Guarda nombre, tipo, ámbito y visibilidad.</p>
                 <p><strong>Tabla de direcciones:</strong> Calcula el desplazamiento de memoria de cada dato.</p>
-                <p><strong>Ejemplo:</strong> Si defines una variable global <code>int x</code>, se registra su tipo, alcance y dirección de memoria.</p>
+                <p><strong>Ejemplo:</strong> Si defines una variable global <code>int x</code>, se registra su tipo,
+                    alcance y dirección de memoria.</p>
             </div>
-            <div class="img-placeholder">Espacio para imagen</div>
+            <img src="img/image6.png" class="tema-img" alt="Árbol de expresiones">
+            </div>
         </section>
 
         <section class="tema">
@@ -134,12 +160,16 @@
                     <li>Uso de variables fuera de su ámbito.</li>
                     <li>División por cero cuando es constante.</li>
                 </ul>
-                <p><strong>Estrategia de recuperación:</strong> El compilador debe seguir analizando para reportar varios errores y no detenerse en el primero.</p>
-                <p><strong>Ejemplo:</strong> <code>int x = suma(5);</code> sería error si <code>suma</code> necesita dos parámetros.</p>
+                <p><strong>Estrategia de recuperación:</strong> El compilador debe seguir analizando para reportar
+                    varios errores y no detenerse en el primero.</p>
+                <p><strong>Ejemplo:</strong> <code>int x = suma(5);</code> sería error si <code>suma</code> necesita dos
+                    parámetros.</p>
             </div>
-            <div class="img-placeholder">Espacio para imagen</div>
+             <img src="img/image7.png" class="tema-img" alt="Árbol de expresiones">
+            </div>
         </section>
     </main>
 
 </body>
+
 </html>
