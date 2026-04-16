@@ -10,6 +10,8 @@
 
 <body>
 
+    <div class="progress-bar" id="progressBar"></div>
+
     <nav>
         <a href="#unidad1">Unidad I</a>
         <a href="#unidad2">Unidad II</a>
@@ -446,7 +448,7 @@ goto L2</code></pre>
                     Optimizar implica también disminuir costos de ejecución y uso de recursos.
                 </p>
             </div>
-             <div class="img-placeholder">
+            <div class="img-placeholder">
                 <img src="img/3.2.png" class="tema-img" alt="Optimización de mirilla">
             </div>
         </section>
@@ -497,7 +499,8 @@ goto L2</code></pre>
             <div class="img-placeholder">
                 <img src="img/3.2.3.png" class="tema-img" alt="Flujo de datos">
             </div>
-             </section>
+        </section>
+
         <!-- ========================= -->
         <!-- UNIDAD 4 -->
         <!-- ========================= -->
@@ -579,6 +582,115 @@ MOV X, AX</code></pre>
         </section>
 
     </main>
+
+    <button id="btnTop" aria-label="Volver arriba">↑</button>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar imagen">×</button>
+        <img id="lightboxImg" src="" alt="Vista ampliada">
+    </div>
+
+    <script>
+        const elementos = document.querySelectorAll('.tema, .intro-box');
+        elementos.forEach(el => el.classList.add('reveal'));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        elementos.forEach(el => observer.observe(el));
+
+        const progressBar = document.getElementById('progressBar');
+
+        function actualizarProgreso() {
+            const scrollTop = window.scrollY;
+            const alturaTotal = document.documentElement.scrollHeight - window.innerHeight;
+            const progreso = (scrollTop / alturaTotal) * 100;
+            progressBar.style.width = progreso + '%';
+        }
+
+        window.addEventListener('scroll', actualizarProgreso);
+        actualizarProgreso();
+
+        const btnTop = document.getElementById('btnTop');
+
+        function toggleBtnTop() {
+            if (window.scrollY > 450) {
+                btnTop.classList.add('show');
+            } else {
+                btnTop.classList.remove('show');
+            }
+        }
+
+        window.addEventListener('scroll', toggleBtnTop);
+        toggleBtnTop();
+
+        btnTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const secciones = document.querySelectorAll('#unidad1, #unidad2, #unidad3, #unidad4');
+        const links = document.querySelectorAll('nav a');
+
+        function activarLink() {
+            let actual = '';
+
+            secciones.forEach(seccion => {
+                const top = seccion.offsetTop - 150;
+                const height = seccion.offsetHeight;
+
+                if (window.scrollY >= top && window.scrollY < top + height) {
+                    actual = seccion.getAttribute('id');
+                }
+            });
+
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + actual) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', activarLink);
+        activarLink();
+
+        const imagenes = document.querySelectorAll('.tema-img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        imagenes.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('show');
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('show');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('show');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('show');
+            }
+        });
+    </script>
 
 </body>
 
