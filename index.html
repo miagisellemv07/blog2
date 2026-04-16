@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Blog - Análisis Semántico</title>
+    <title>Mi Blog - Lenguajes y Autómatas II</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -12,11 +12,9 @@
 
     <nav>
         <a href="#unidad1">Unidad I</a>
-        <a href="#">Unidad II</a>
-        <a href="#">Unidad III</a>
-        <a href="#">Unidad IV</a>
-        <a href="#">Unidad V</a>
-        <a href="#">Unidad VI</a>
+        <a href="#unidad2">Unidad II</a>
+        <a href="#unidad3">Unidad III</a>
+        <a href="#unidad4">Unidad IV</a>
     </nav>
 
     <header class="hero">
@@ -24,8 +22,12 @@
     </header>
 
     <main>
-        <section class="intro-box">
-            <h1 id="unidad1" class="main-title">ANÁLISIS SEMÁNTICO</h1>
+        <!-- ========================= -->
+        <!-- UNIDAD 1 -->
+        <!-- ========================= -->
+
+        <section class="intro-box unidad1-intro" id="unidad1">
+            <h1 class="main-title unidad1-title">UNIDAD I: ANÁLISIS SEMÁNTICO</h1>
             <p>
                 El análisis semántico es el <strong>"cerebro" del compilador</strong>:
                 es donde se decide si el código, aunque esté bien escrito en sintaxis,
@@ -33,7 +35,7 @@
             </p>
         </section>
 
-        <section class="tema">
+        <section class="tema unidad1">
             <h2>1.1 Árboles de expresiones</h2>
             <div class="contenido">
                 <p>
@@ -58,7 +60,7 @@
             </div>
         </section>
 
-        <section class="tema">
+        <section class="tema unidad1">
             <h2>1.2 Acciones semánticas de un analizador sintáctico</h2>
             <div class="contenido">
                 <p>
@@ -72,11 +74,12 @@
                 <pre><code>DECLARACION -> TIPO ID ;
 { TablaSimbolos.insertar(ID.nombre, TIPO.tipo); }</code></pre>
             </div>
-            <img src="img/image2.png" class="tema-img" alt="Árbol de expresiones">
+            <div class="img-placeholder">
+                <img src="img/image2.png" class="tema-img" alt="Acciones semánticas">
             </div>
         </section>
 
-        <section class="tema">
+        <section class="tema unidad1">
             <h2>1.3 Comprobaciones de tipos en expresiones</h2>
             <div class="contenido">
                 <p>
@@ -90,14 +93,12 @@
                 <p><strong>Ejemplo:</strong> Si declaras <code>int a = 10;</code> y luego intentas hacer
                     <code>a = "Hola";</code>, se marcará un error semántico.</p>
             </div>
+            <div class="img-placeholder">
+                <img src="img/image3.png" class="tema-img" alt="Comprobación de tipos">
             </div>
-            <img src="img/image3.png" class="tema-img" alt="Árbol de expresiones">
-            </div>
-
-
         </section>
 
-        <section class="tema">
+        <section class="tema unidad1">
             <h2>1.4 Pila semántica en un analizador sintáctico</h2>
             <div class="contenido">
                 <p>
@@ -111,12 +112,12 @@
                 <p><strong>Ejemplo:</strong> Al procesar <code>2 + 3</code>, la pila recibe 2, luego 3, y después
                     devuelve 5.</p>
             </div>
-            </div>
-            <img src="img/image4.png" class="tema-img" alt="Árbol de expresiones">
+            <div class="img-placeholder">
+                <img src="img/image4.png" class="tema-img" alt="Pila semántica">
             </div>
         </section>
 
-        <section class="tema">
+        <section class="tema unidad1">
             <h2>1.5 Esquema de traducción</h2>
             <div class="contenido">
                 <p>
@@ -128,12 +129,12 @@
                 <p><strong>Ejemplo:</strong> En <code>LISTA_VARS -> ID , LISTA_VARS</code>, el tipo de dato se hereda
                     hacia los identificadores de la lista.</p>
             </div>
-            </div>
-            <img src="img/image5.png" class="tema-img" alt="Árbol de expresiones">
+            <div class="img-placeholder">
+                <img src="img/image5.png" class="tema-img" alt="Esquema de traducción">
             </div>
         </section>
 
-        <section class="tema">
+        <section class="tema unidad1">
             <h2>1.6 Generación de la tabla de símbolos y tabla de direcciones</h2>
             <div class="contenido">
                 <p>Estas tablas son el diccionario del programa durante la compilación.</p>
@@ -142,11 +143,12 @@
                 <p><strong>Ejemplo:</strong> Si defines una variable global <code>int x</code>, se registra su tipo,
                     alcance y dirección de memoria.</p>
             </div>
-            <img src="img/image6.png" class="tema-img" alt="Árbol de expresiones">
+            <div class="img-placeholder">
+                <img src="img/image6.png" class="tema-img" alt="Tabla de símbolos">
             </div>
         </section>
 
-        <section class="tema">
+        <section class="tema unidad1">
             <h2>1.7 Manejo de errores semánticos</h2>
             <div class="contenido">
                 <p>
@@ -165,9 +167,417 @@
                 <p><strong>Ejemplo:</strong> <code>int x = suma(5);</code> sería error si <code>suma</code> necesita dos
                     parámetros.</p>
             </div>
-             <img src="img/image7.png" class="tema-img" alt="Árbol de expresiones">
+            <div class="img-placeholder">
+                <img src="img/image7.png" class="tema-img" alt="Errores semánticos">
             </div>
         </section>
+
+        <!-- ========================= -->
+        <!-- UNIDAD 2 -->
+        <!-- ========================= -->
+
+        <section class="intro-box unidad2-intro" id="unidad2">
+            <h1 class="main-title unidad2-title">UNIDAD II: GENERACIÓN DE CÓDIGO INTERMEDIO</h1>
+            <p>
+                La generación de código intermedio transforma el programa fuente en una forma más simple,
+                organizada y fácil de procesar antes de convertirlo en código máquina.
+            </p>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.1 Notaciones</h2>
+            <div class="contenido">
+                <p>
+                    Las notaciones son diferentes maneras de representar expresiones matemáticas o lógicas.
+                    En compiladores se usan para facilitar la traducción y evaluación de expresiones.
+                </p>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.1.1 Prefija</h2>
+            <div class="contenido">
+                <p>
+                    En la notación prefija, el operador se coloca antes de los operandos.
+                </p>
+                <p><strong>Ejemplo:</strong> <code>+ a b</code></p>
+                <p><strong>Ventaja:</strong> reduce ambigüedades y facilita el análisis.</p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/2.1.png" class="tema-img" alt="Notación prefija">
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.1.2 Infija</h2>
+            <div class="contenido">
+                <p>
+                    Es la forma tradicional de escribir expresiones, colocando el operador entre los operandos.
+                </p>
+                <p><strong>Ejemplo:</strong> <code>a + b</code></p>
+                <p><strong>Importancia:</strong> es la notación más comprensible para las personas.</p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/2.1.2.png" class="tema-img" alt="Notación infija">
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.1.3 Postfija</h2>
+            <div class="contenido">
+                <p>
+                    En la notación postfija, el operador se coloca después de los operandos.
+                </p>
+                <p><strong>Ejemplo:</strong> <code>a b +</code></p>
+                <p><strong>Importancia:</strong> es muy útil para trabajar con pilas.</p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/2.1.3.png" class="tema-img" alt="Notación postfija">
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.2 Representaciones de código intermedio</h2>
+            <div class="contenido">
+                <p>
+                    El código intermedio puede representarse de distintas formas, dependiendo de cómo
+                    se quiera organizar la información antes de generar el código final.
+                </p>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.2.1 Notación Polaca</h2>
+            <div class="contenido">
+                <p>
+                    Es una notación donde el operador va antes de los operandos.
+                </p>
+                <p><strong>Ejemplo:</strong> <code>* + a b c</code></p>
+                <p><strong>Ventaja:</strong> elimina el uso de paréntesis.</p>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.2.2 Código P</h2>
+            <div class="contenido">
+                <p>
+                    El código P es una representación intermedia diseñada para una máquina abstracta o virtual.
+                </p>
+                <pre><code>LOD a
+LOD b
+ADI
+STO x</code></pre>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.2.3 Triplos</h2>
+            <div class="contenido">
+                <p>
+                    Los triplos representan operaciones mediante tres elementos:
+                    operador, argumento 1 y argumento 2.
+                </p>
+                <p><strong>Ventaja:</strong> permiten manejar resultados temporales sin nombrarlos explícitamente.</p>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.2.4 Cuádruplos</h2>
+            <div class="contenido">
+                <p>
+                    Los cuádruplos guardan operador, argumento 1, argumento 2 y resultado.
+                </p>
+                <p><strong>Ejemplo:</strong> <code>(+, a, b, t1)</code></p>
+                <p><strong>Importancia:</strong> facilitan la optimización y generación de código.</p>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.3 Esquema de generación</h2>
+            <div class="contenido">
+                <p>
+                    Define cómo las estructuras del programa fuente se traducen a instrucciones intermedias.
+                </p>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.3.1 Variables y constantes</h2>
+            <div class="contenido">
+                <p>
+                    Las variables y constantes deben registrarse correctamente para poder ser usadas
+                    durante la traducción del programa.
+                </p>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.3.2 Expresiones</h2>
+            <div class="contenido">
+                <p>
+                    Las expresiones se descomponen en operaciones simples usando variables temporales.
+                </p>
+                <pre><code>t1 = b * c
+t2 = a + t1</code></pre>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.3.3 Instrucción de asignación</h2>
+            <div class="contenido">
+                <p>
+                    La asignación guarda el valor de una expresión dentro de una variable.
+                </p>
+                <p><strong>Ejemplo:</strong> <code>x = a + b</code></p>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.3.4 Instrucciones de control</h2>
+            <div class="contenido">
+                <p>
+                    Estructuras como <code>if</code>, <code>while</code> y <code>for</code>
+                    controlan el flujo de ejecución del programa.
+                </p>
+                <pre><code>if a &lt; b goto L1
+goto L2</code></pre>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.3.5 Funciones</h2>
+            <div class="contenido">
+                <p>
+                    Las funciones permiten reutilizar bloques de código y organizar mejor un programa.
+                </p>
+            </div>
+        </section>
+
+        <section class="tema unidad2">
+            <h2>2.3.6 Estructuras</h2>
+            <div class="contenido">
+                <p>
+                    Las estructuras agrupan varios datos relacionados dentro de una misma entidad.
+                </p>
+                <p><strong>Ejemplo:</strong> <code>alumno.edad</code></p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/2.3.6.png" class="tema-img" alt="Estructuras">
+            </div>
+        </section>
+
+        <!-- ========================= -->
+        <!-- UNIDAD 3 -->
+        <!-- ========================= -->
+
+        <section class="intro-box unidad3-intro" id="unidad3">
+            <h1 class="main-title unidad3-title">UNIDAD III: OPTIMIZACIÓN</h1>
+            <p>
+                La optimización es la fase del compilador que mejora el código para hacerlo más eficiente,
+                rápido y con menor consumo de recursos, sin cambiar su resultado.
+            </p>
+        </section>
+
+        <section class="tema unidad3">
+            <h2>3.1 Tipos de optimización</h2>
+            <div class="contenido">
+                <p>
+                    Existen diferentes tipos de optimización según el alcance y el tipo de mejora
+                    que se desea aplicar dentro del programa.
+                </p>
+            </div>
+        </section>
+
+        <section class="tema unidad3">
+            <h2>3.1.1 Locales</h2>
+            <div class="contenido">
+                <p>
+                    Se aplican dentro de un bloque básico de instrucciones.
+                </p>
+                <p><strong>Ejemplo:</strong> eliminar operaciones redundantes.</p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/3.1.1.png" class="tema-img" alt="Optimización local">
+            </div>
+        </section>
+
+        <section class="tema unidad3">
+            <h2>3.1.2 Ciclos</h2>
+            <div class="contenido">
+                <p>
+                    Mejoran el rendimiento dentro de estructuras repetitivas como bucles.
+                </p>
+                <p><strong>Ejemplo:</strong> mover cálculos invariantes fuera del ciclo.</p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/3.1.2.png" class="tema-img" alt="Optimización de ciclos">
+            </div>
+        </section>
+
+        <section class="tema unidad3">
+            <h2>3.1.3 Globales</h2>
+            <div class="contenido">
+                <p>
+                    Se aplican en distintas partes del programa, no solo en un bloque aislado.
+                </p>
+                <p><strong>Ejemplo:</strong> propagación de constantes o eliminación de código muerto.</p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/3.1.3.png" class="tema-img" alt="Optimización global">
+            </div>
+        </section>
+
+        <section class="tema unidad3">
+            <h2>3.1.4 De mirilla</h2>
+            <div class="contenido">
+                <p>
+                    Analiza pequeñas secuencias de instrucciones para sustituirlas por otras más eficientes.
+                </p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/3.1.4.png" class="tema-img" alt="Optimización de mirilla">
+            </div>
+        </section>
+
+        <section class="tema unidad3">
+            <h2>3.2 Costos</h2>
+            <div class="contenido">
+                <p>
+                    Optimizar implica también disminuir costos de ejecución y uso de recursos.
+                </p>
+            </div>
+             <div class="img-placeholder">
+                <img src="img/3.2.png" class="tema-img" alt="Optimización de mirilla">
+            </div>
+        </section>
+
+        <section class="tema unidad3">
+            <h2>3.2.1 Costo de ejecución (memoria, registros, pilas)</h2>
+            <div class="contenido">
+                <p>
+                    Considera los recursos que utiliza un programa para ejecutarse.
+                </p>
+                <ul>
+                    <li><strong>Memoria:</strong> espacio utilizado por datos y estructuras.</li>
+                    <li><strong>Registros:</strong> almacenamiento rápido del procesador.</li>
+                    <li><strong>Pilas:</strong> soporte para llamadas a funciones y variables locales.</li>
+                </ul>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/3.2.1.png" class="tema-img" alt="Costo de ejecución">
+            </div>
+        </section>
+
+        <section class="tema unidad3">
+            <h2>3.2.2 Criterios para mejorar el código</h2>
+            <div class="contenido">
+                <p>
+                    Para mejorar el código se analizan criterios como velocidad, tamaño y uso eficiente
+                    de memoria o registros.
+                </p>
+                <ul>
+                    <li>Reducir tiempo de ejecución.</li>
+                    <li>Eliminar instrucciones innecesarias.</li>
+                    <li>Disminuir uso de memoria.</li>
+                    <li>Aprovechar mejor los registros.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="tema unidad3">
+            <h2>3.2.3 Herramientas para el análisis del flujo de datos</h2>
+            <div class="contenido">
+                <p>
+                    El análisis del flujo de datos estudia cómo se generan, modifican y usan
+                    los valores dentro del programa.
+                </p>
+                <p><strong>Importancia:</strong> permite encontrar oportunidades de optimización como código muerto
+                    o expresiones repetidas.</p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/3.2.3.png" class="tema-img" alt="Flujo de datos">
+            </div>
+             </section>
+        <!-- ========================= -->
+        <!-- UNIDAD 4 -->
+        <!-- ========================= -->
+
+        <section class="intro-box unidad4-intro" id="unidad4">
+            <h1 class="main-title unidad4-title">UNIDAD IV: GENERACIÓN DE CÓDIGO OBJETO</h1>
+            <p>
+                La generación de código objeto es la fase donde el compilador transforma el código intermedio
+                en instrucciones más cercanas al hardware, listas para ser ensambladas o ejecutadas por la máquina.
+            </p>
+        </section>
+
+        <section class="tema unidad4">
+            <h2>4.1 Registros</h2>
+            <div class="contenido">
+                <p>
+                    Los registros son pequeñas unidades de almacenamiento dentro del procesador que permiten
+                    guardar datos temporalmente durante la ejecución de instrucciones.
+                </p>
+                <p><strong>Importancia:</strong> Son mucho más rápidos que la memoria principal y mejoran
+                    el rendimiento del programa.</p>
+                <p><strong>Uso en compiladores:</strong> el compilador intenta asignar variables frecuentes
+                    a registros para acelerar operaciones.</p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/4.1.png" class="tema-img" alt="Registros">
+            </div>
+        </section>
+
+        <section class="tema unidad4">
+            <h2>4.2 Lenguaje ensamblador</h2>
+            <div class="contenido">
+                <p>
+                    El lenguaje ensamblador es una representación simbólica de las instrucciones de máquina.
+                    Cada instrucción en ensamblador corresponde casi directamente con una instrucción del procesador.
+                </p>
+                <p><strong>Importancia:</strong> permite un control muy preciso del hardware y sirve
+                    como paso intermedio antes del código máquina.</p>
+                <pre><code>MOV AX, 5
+ADD AX, 3
+MOV X, AX</code></pre>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/4.2.png" class="tema-img" alt="Lenguaje ensamblador">
+            </div>
+        </section>
+
+        <section class="tema unidad4">
+            <h2>4.3 Lenguaje máquina</h2>
+            <div class="contenido">
+                <p>
+                    El lenguaje máquina es el conjunto de instrucciones en formato binario que el procesador
+                    puede ejecutar directamente.
+                </p>
+                <p><strong>Características:</strong> está formado por ceros y unos, y depende totalmente
+                    de la arquitectura de la computadora.</p>
+                <p><strong>Importancia:</strong> es el resultado final de la compilación antes de la ejecución.</p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/4.3.png" class="tema-img" alt="Lenguaje máquina">
+            </div>
+        </section>
+
+        <section class="tema unidad4">
+            <h2>4.4 Administración de memoria</h2>
+            <div class="contenido">
+                <p>
+                    La administración de memoria consiste en organizar y controlar cómo se almacenan
+                    los datos y programas en la memoria principal.
+                </p>
+                <p><strong>Importancia:</strong> permite usar de forma eficiente el espacio disponible
+                    y evitar errores como accesos inválidos.</p>
+                <p><strong>En compiladores:</strong> se relaciona con la asignación de direcciones,
+                    variables locales, globales, pilas y segmentos de memoria.</p>
+            </div>
+            <div class="img-placeholder">
+                <img src="img/4.4.png" class="tema-img" alt="Administración de memoria">
+            </div>
+        </section>
+
     </main>
 
 </body>
